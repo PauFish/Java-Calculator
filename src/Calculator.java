@@ -107,11 +107,82 @@ public class Calculator implements ActionListener{
 		Calculator calc = new Calculator(); //instance calculator class
 	}
 
-	
+	//make the buttons work
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		for(int i=0;i<10;i++) {
+			if(e.getSource() == numberButtons[i]) {
+				//when you press a button will aper inside the text field
+				textfield.setText(textfield.getText().concat(String.valueOf(i))); 
+			}
+		}
+		
+		//adds a .  in the text field 
+		if(e.getSource() == decButton) {
+			textfield.setText(textfield.getText().concat("."));  
+		}
+		
+		
+		// + action
+		if(e.getSource() == addButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator= '+'; //Assign operator, a character
+			textfield.setText("");  //clear text field
+				}
+				// + action
+		if(e.getSource() == subButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator= '-'; //Assign operator, a character
+			textfield.setText("");  //clear text field
+			}	
+		if(e.getSource() == mulButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator= '*'; //Assign operator, a character
+			textfield.setText("");  //clear text field
+			}	
+		if(e.getSource() == divButton) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator= '/'; //Assign operator, a character
+			textfield.setText("");  //clear text field
+			}
+		
+		// math
+		if(e.getSource()==equButton) {
+			num2=Double.parseDouble(textfield.getText());
+			
+			switch(operator) {
+			case'+':
+				result = num1 + num2;
+				break;
+			case'-':
+				result = num1 - num2;
+				break;	
+			case'*':
+				result = num1 * num2;
+				break;	
+			case'/':
+				result = num1 / num2;
+				break;	
+				
+			}
+			//update text field
+			textfield.setText(String.valueOf(result));
+			num1=result; //to continue to reuse number
+			
+		}
+		//clear button
+		if(e.getSource() == clrButton) {
+			textfield.setText("");  //clear text field
+			}	
+		//delete button
+		if(e.getSource() == delButton) {
+			String string = textfield.getText();
+			textfield.setText("");
+			for(int i=0;i<string.length()-1;i++){ //deletes the last number to the left
+				textfield.setText(textfield.getText()+string.charAt(i));
+			}
+			}
 	}
 	
 	
