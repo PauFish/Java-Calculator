@@ -25,6 +25,7 @@ public class Calculator implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //close the program
 		frame.setSize(420,550); // calculator size
 		frame.setLayout(null); 
+		frame.getContentPane().setBackground(Color.DARK_GRAY); //All calculator background
 		
 		//tester
 		textfield=new JTextField();
